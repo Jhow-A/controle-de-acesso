@@ -1,0 +1,68 @@
+﻿@model ControleDeAcesso.Models.Acesso
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login @Page.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        /* AntiForgeryToken(): método que gera e insere no HTML um código para evitar que se falsifique o envio de dados para o servidor. Esse atributo tem o objetivo de proteger o acesso a sua aplicações por pedidos Http falsificados. Quando o formulário for enviado com este código é possível validar se foi gerado pela sessão atual. Quando a página é enviada, um erro é gerado se o valor do cookie não corresponder ao valor do formulário. Ele resolve alguns tipos de ataque como CSRF, mas não todos.
+        */
+        @Html.AntiForgeryToken()
+
+        /* ValidationSummary(): método que gera um resumo de todos os erros de validação embutidos em uma página da web. Também pode ser usado para exibir todas as mensagens de erro para todos os campos. Também pode ser usado para exibir mensagens de erro personalizadas.
+         */
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="container">
+            <div class="form-login">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color: #3498db;">
+                        <div class="panel-title" style="color: #FFF; font-size: 20px;">Login do Sistema</div>
+                    </div>
+
+                    <div style="padding-top:30px" class="panel-body">
+                        <div style="display:none" id="result" class="alert alert-danger col-sm-12">
+                        </div>
+
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </span>
+                            @Html.EditorFor(model => model.email, new { htmlAttributes =
+                            new { @class = "form-control input-lg", placeholder = "E-mail", autofocus = true } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-lock"></i>
+                            </span>
+                            @Html.EditorFor(model => model.email, new { htmlAttributes =
+                            new { @class = "form-control input-lg", placeholder = "Senha" }})
+                            @Html.ValidationMessageFor(model => model.senha, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div style="margin-top:10px" class="form-group">
+                            <div class="col-sm-12 controls">
+                                <input type="submit" value="Acessar" class="btn primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
