@@ -11,7 +11,17 @@
     <title>Index</title>
 </head>
 <body>
-    <div> 
+    <div class="container" style="text-align: center;">
+        @if (Session["Nome"] != null)
+        {
+            <div class="row" style="margin-top: 10px;">
+                <p>
+                    <h1>Bem-vindo!</h1>
+                    <h3>@Session["Nome"].ToString() @Session["Sobrenome"].ToString()</h3>
+                </p>
+                <p>@Html.ActionLink("Cadastro de Acesso", "Index", "Acesso")</p>
+            </div>
+        }
     </div>
 </body>
 </html>

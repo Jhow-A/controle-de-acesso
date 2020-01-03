@@ -22,12 +22,6 @@ namespace ControleDeAcesso.Controllers
             return View(new Acesso());
         }
 
-        /// <summary>
-        /// Método para validação do usuário 
-        /// </summary>
-        /// <param name="acesso">Objeto com as credenciais para o login</param>
-        /// <param name="returnUrl">String do site</param>
-        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Acesso acesso, string returnUrl)
