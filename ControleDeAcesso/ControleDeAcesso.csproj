@@ -117,23 +117,30 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Icon.png" />
-    <Content Include="Models\ControleAcesso.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ControleAcesso.Context.cs</LastGenOutput>
-      <DependentUpon>ControleAcesso.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ControleAcesso.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ControleAcesso.edmx</DependentUpon>
-      <LastGenOutput>ControleAcesso.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Models\ControleAcesso.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ControleAcesso.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ControleAcesso.edmx.diagram">
+      <DependentUpon>ControleAcesso.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Models\ControleAcesso.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ControleAcesso.edmx</DependentUpon>
+      <LastGenOutput>ControleAcesso.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ControleAcesso.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ControleAcesso.edmx</DependentUpon>
+      <LastGenOutput>ControleAcesso.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -174,17 +181,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\ControleAcesso.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ControleAcesso.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ControleAcesso.edmx.diagram">
-      <DependentUpon>ControleAcesso.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Acesso\Create.cshtml" />
     <Content Include="Views\Acesso\Delete.cshtml" />
     <Content Include="Views\Acesso\Details.cshtml" />
     <Content Include="Views\Acesso\Edit.cshtml" />

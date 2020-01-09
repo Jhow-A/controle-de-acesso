@@ -35,38 +35,6 @@ namespace ControleDeAcesso.Controllers
             return View(acesso);
         }
 
-        // GET: Acesso/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Acesso/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_login,email,senha,ativo,perfil,nome,sobrenome")] Acesso acesso)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    db.Acesso.Add(acesso);
-                    db.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("Banco de Dados", "Não foi possível criar o usuário");
-                    return View(acesso);
-                }
-
-                return RedirectToAction("Index");
-            }
-
-            return View(acesso);
-        }
-
         // GET: Acesso/Edit/5
         [Authorize(Roles = "Administrador")]
         public ActionResult Edit(int? id)
