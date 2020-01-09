@@ -50,8 +50,17 @@ namespace ControleDeAcesso.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Acesso.Add(acesso);
-                db.SaveChanges();
+                try
+                {
+                    db.Acesso.Add(acesso);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("Banco de Dados", "Não foi possível criar o usuário");
+                    return View(acesso);
+                }
+
                 return RedirectToAction("Index");
             }
 
@@ -84,8 +93,17 @@ namespace ControleDeAcesso.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(acesso).State = EntityState.Modified;
-                db.SaveChanges();
+                try
+                {
+                    db.Entry(acesso).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("Banco de Dados", "Não foi possível editar o usuário");
+                    return View(acesso);
+                }
+
                 return RedirectToAction("Index");
             }
             return View(acesso);
@@ -114,8 +132,18 @@ namespace ControleDeAcesso.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Acesso acesso = db.Acesso.Find(id);
-            db.Acesso.Remove(acesso);
-            db.SaveChanges();
+
+            try
+            {
+                db.Acesso.Remove(acesso);
+                db.SaveChanges();            
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Banco de Dados", "Não foi possível deletar o usuário");
+                return View(acesso);
+            }
+
             return RedirectToAction("Index");
         }
 

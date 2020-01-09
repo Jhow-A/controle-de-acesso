@@ -44,7 +44,7 @@ namespace ControleDeAcesso.Controllers
                             {
                                 /* Caso o usuário e senha estejam validados e o usuário esteja ativo, ele faz a autenticação do usuário gravando no Cookie a senha do usuário e o parâmetro "false" para que quando o usuário fechar o navegador e abrir, ele pede a autenticação novamente. Caso o parâmetro seja "true", sempre que o usuário entrar no navegador e digitar a página, ele já vai entrar direto sem autenticação. Isso é um risco, pois pessoas mal-intencionadas consegue descriptografar o cookie e consegue pegar o usuário gravado.
                                */
-                                FormsAuthentication.SetAuthCookie(login.senha, false);
+                                FormsAuthentication.SetAuthCookie(login.email, false);
 
                                 /* Verificação da string do site, isso por causa da segurança na hora do retorno. Caso o parâmetro returnURL seja maior que 1, significa que existe uma string. Após isso, ele verifica se inicia com uma barra, que é o padrão. Caso retorne duas barras é errado e ele não valida, e por último ele verifica.
                                  */

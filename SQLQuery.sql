@@ -4,7 +4,7 @@ USE DevMedia;
 
 CREATE TABLE Acesso 
   ( 
-     id_login  INT IDENTITY NOT NULL, 
+     id_login  INT IDENTITY PRIMARY KEY, 
      email     VARCHAR(100), 
      senha     VARCHAR(100), 
      ativo     CHAR(1), 

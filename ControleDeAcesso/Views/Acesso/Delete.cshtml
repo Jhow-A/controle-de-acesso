@@ -16,60 +16,64 @@
     <div>
         <h4>Acesso</h4>
         <hr />
+        
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.email)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.email)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.senha)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.senha)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.ativo)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.ativo)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.perfil)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.perfil)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.nome)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.nome)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.sobrenome)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.sobrenome)
             </dd>
-    
+
         </dl>
-    
-        @using (Html.BeginForm()) {
+
+        @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
-    
+
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
                 @Html.ActionLink("Back to List", "Index")
